@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shot-type-prediction"
+version = "1.0.0"
+description = "Classify camera shot types (close-up, medium, full) from images with a Keras model."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Martin" }]
+keywords = ["keras", "tensorflow", "computer-vision", "classification", "film", "video"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=1.23",
+  "matplotlib>=3.7",
+  "pillow>=10",
+]
+
+[project.optional-dependencies]
+tf = [
+  "tensorflow>=2.12,<3",
+]
+dev = [
+  "pytest>=7.4",
+  "ruff>=0.3",
+]
+
+[project.scripts]
+shot-type-predict = "shot_type_prediction.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/shot-type-prediction"
+Repository = "https://github.com/yourusername/shot-type-prediction"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

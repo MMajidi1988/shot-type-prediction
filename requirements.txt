@@ -1,0 +1,6 @@
+# Editable install with TensorFlow (inference): pip install -e ".[tf]"
+# Dev (lint + tests; add [tf] on CI / Linux / supported Python): pip install -e ".[tf,dev]"
+numpy>=1.23
+matplotlib>=3.7
+pillow>=10
+tensorflow>=2.12,<3
